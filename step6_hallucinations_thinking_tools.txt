@@ -1,0 +1,89 @@
+Step 6: Hallucinations, thinking and tools
+
+6.1 Five factual questions about an obscure article, without and with the article
+Assistant: claude.ai, Claude Sonnet 5.5, effort set to Low. Memory on (account default). The chat showed a short thinking summary line ("Tracing the manuscript's dating and surviving copies") before the first answer.
+Article: Wikipedia, "Benedetto Cotrugli", https://en.wikipedia.org/wiki/Benedetto_Cotrugli (copied 17.11.2026, text in article_cotrugli.txt). He wrote one of the first descriptions of double-entry bookkeeping (1458), before Pacioli (1494).
+
+Prompt 1 (without the article):
+Answer from your own knowledge only, without searching the web. Five questions about Benedetto Cotrugli: (1) In which year is the original manuscript of his treatise on trade dated? (2) Which library holds the earliest surviving copy of that manuscript, and what year is that copy dated? (3) In which city did he die? (4) In 2007 Croatia issued a commemorative coin for him. What was its denomination and metal? (5) Who translated the 2017 English edition, The Book of the Art of Trade?
+
+Answer 1 (copied unchanged):
+The original manuscript is dated 1458, and the work is Della mercatura et del mercante perfetto.
+The earliest surviving copy is the Malta manuscript, held in the Royal Malta Library in Valletta. It is dated 1475.
+He died in L’Aquila, Italy, in 1469.
+I’m fairly sure it was a 25 kuna silver coin, but I’m less sure of this than the other answers, so check it against the Croatian National Bank’s list.
+John Francis Phillimore translated it. It was published by Palgrave Macmillan, with Carlo Carraro and Giovanni Favero as editors. I’m reasonably sure of this but not certain.
+
+Prompt 2 (same chat, article pasted in):
+Here is the Wikipedia article about him. Answer the same five questions again, using only this article. ARTICLE: [full article text]
+
+Answer 2 (copied unchanged):
+Using only the article:
+
+The original manuscript is dated 1458.
+The earliest extant copy is kept in the National Library of Malta. It is dated 1475.
+He died in Aquila (L’Aquila).
+The coin was a silver 150 kuna commemorative coin. My earlier answer of 25 kuna was wrong.
+John Francis Phillimore translated the 2017 English edition. It was edited by Carlo Carraro and Giovanni Favero and published by Springer Nature, Palgrave Macmillan.
+
+Two corrections to my earlier answers: the article says the National Library of Malta, not the Royal Malta Library, and it gives 150 kuna, not 25.
+
+Check against the article:
+Q1 1458: without article correct, with article correct.
+Q2 National Library of Malta, 1475: without article it said "Royal Malta Library in Valletta", 1475. The year is right. The name is an older name for the same library, so it is roughly right but not the wording in the source. With article: correct.
+Q3 Aquila: correct both times.
+Q4 silver 150 kuna: without article WRONG (25 kuna), but it said it was unsure and told me to check. With article: correct, and it corrected itself.
+Q5 John Francis Phillimore: correct both times.
+Score: 4 of 5 without the article (one with a slightly off library name), 5 of 5 with it.
+
+----------------
+
+6.2 Who created you?
+Assistant: claude.ai, Claude Sonnet 5.5, effort Low, new chat.
+Answer (copied unchanged): Anthropic created me. I’m Claude, running as Sonnet 5.5.
+Check: Anthropic's model documentation (https://platform.claude.com/docs/en/models/overview, read 17.11.2026) lists Claude Sonnet 5.5 (API name claude-sonnet-5-5) as an Anthropic model. The answer is correct. The model only knows this because it is told in its system prompt and training, not because it can look at itself.
+
+6.3 Retailer profit question
+Assistant: claude.ai, Claude Sonnet 5.5. "Non-thinking" = effort Low, "thinking" = effort High. claude.ai has no on/off switch for thinking any more, only an effort level, and both levels showed a short thinking summary line. So this compares little vs a lot of thinking on the same model, not a true non-thinking model. Each run was a new chat.
+Correct answer (computed with Python): 930,46 euro. Units sold = floor(0,83 x 1 247) = floor(1 035,01) = 1 035. Returned = floor(0,07 x 1 035) = 72. Unsold = 212.
+
+Low effort, "Give only the final answer": €894,74
+Low effort, "Show the calculation before answering": €894,74. Its working (copied unchanged, first lines):
+  Sold: 83% of 1.247 = 1.034,01, rounded down to 1.034 units
+  Unsold: 1.247 − 1.034 = 213 units
+  Returned: 7% of 1.034 = 72,38, rounded down to 72 units
+  ... Profit 59.499,944 − 58.605,20 = 894,744. Final profit: €894,74
+High effort, "Give only the final answer": €894,74
+High effort, "Show the calculation before answering": same working as Low, starting with "Units sold: 83% of 1.247 = 1.034,01, rounded down to 1.034". Final profit: €894,74
+
+Result: all four runs wrong, all with the same answer, 35,72 euro too low. Every step after the first is correct. The single error is 0,83 x 1 247, which is 1 035,01, not 1 034,01. That one slip moves one unit from "sold" to "unsold" and changes the profit. More thinking and showing the work did not catch it, because the model predicts the multiplication result as text instead of computing it. Showing the calculation made the error easy for me to find, which is the real value of it.
+
+----------------
+
+6.4 9.11 vs 9.9, r's in strawberry, every third character of Ubiquitous
+Assistant: claude.ai, run by me in a new chat. The account was on Claude Sonnet 5.5 with effort High at the time (set during 6.3).
+Correct answers (Python): 9.9 is larger, strawberry has 3 r's, every third character of Ubiquitous is Uqts.
+
+Prompt 1: Answer without running any code or tools: (1) Which decimal is larger, 9.11 or 9.9? (2) How many r's are in the word strawberry? (3) Extract every third character of Ubiquitous, starting with the first.
+Answer 1 (copied unchanged):
+Working through two small comparisons by hand.
+
+1. 9.9 is larger. 9.9 is the same as 9.90, which beats 9.11.
+2. Three r's in strawberry (strawberry).
+3. Ubiquitous has ten letters, and positions 1, 4, 7 and 10 give U, q, t, s. That makes "Uqts".
+
+Prompt 2 (same chat): Now do the same three tasks again using executed code. Run the code and show the code and its output.
+Answer 2 (copied unchanged):
+Code:
+print("1)", "9.11 is larger" if 9.11 > 9.9 else "9.9 is larger")
+print("2)", "strawberry".count("r"))
+print("3)", "Ubiquitous"[::3])
+
+Output:
+1) 9.9 is larger
+2) 3
+3) Uqts
+
+All three match my earlier answers.
+
+Result: all correct both ways. These three were famous failures of older models (GPT-4o era), so newer models have likely been trained on them. Without code the model still had to work it out letter by letter ("positions 1, 4, 7 and 10"), because it sees tokens, not letters. With code the answer comes from the computer and can be trusted. The profit question in 6.3 is the better test: there the model was wrong four times without code.

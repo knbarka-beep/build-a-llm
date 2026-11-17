@@ -1,0 +1,304 @@
+Step 4: Base model vs instruct model (SLM Testing space, https://stanley-00-slm-testing.hf.space/)
+
+Setup and caveats
+- Tool: the SLM Model Evaluation Hub on Hugging Face Spaces. Default settings on every run: Sampling on, Max Tokens 256, Temperature 0.7, Top-K 50. Outputs are random, so a rerun gives different text.
+- Use GPU was unticked. The status line still says "Loaded ... on CUDA" while the result lines say "(CPU)". I can't tell which one is true, so I recorded the "(CPU)" speed lines as shown.
+- Base model: HuggingFaceTB/SmolLM2-135M in Completion mode.
+- Instruct model: HuggingFaceTB/SmolLM2-135M-Instruct in Chat mode, system prompt left at the page default "You are a helpful assistant."
+- Extra: I first loaded SmolLM2-360M-Instruct by mistake (I missed the 135M-Instruct entry in the dropdown). Those runs are real, so they are kept at the end as an extra. 360M is about 2.7 times bigger, so it shows what a slightly bigger instruct model does.
+- Outputs below are copied from the page unchanged. Outputs stop at 256 tokens, so some end mid-sentence.
+- Nobel prompts: the assignment gives Economic Sciences as an example ("for example"). I used Literature instead.
+
+BASE MODEL: HuggingFaceTB/SmolLM2-135M, Completion mode
+Prompt: What is 2+2?
+
+Run 1 (45.22 tokens/sec, CPU)
+What is 2+2?
+
+What is the square root of 54?
+
+0.739686100418875 × 10-31. The square root of 54 is .075618459297122.
+
+Run 2 (45.63 tokens/sec, CPU)
+What is 2+2?
+
+There are three ways to answer this question. If you're like most people, it's easy for your brain to figure out that the sum of two numbers must be a whole number. You just need to see if the second one is even or odd. Here are some quick tips:
+
+• If the first number is an odd number, then the second number must also be odd (e.g., 15 = 3 + 4). • If the first number is a multiple of two, then the second number must be a multiple of four. For example, 6 × 8 = 40 because 7 × 9 = 60 and so on. • If both of these numbers have an equal number of digits in them, then they must all be integers between zero and nine.
+
+For more examples, see this post.
+
+Thanks for the information, I think we've already covered the basics here!
+How about the following problem:
+Find the sum of all the natural numbers below 10 which are multiples of 3 or 5?
+
+The only way to get from one number to another is by multiplying each number by itself (which does not work with fractions) so I
+
+Run 3 (43.06 tokens/sec, CPU)
+What is 2+2? 4. Multiply the two numbers together, then add them up. (3 x 5) + (10 x 7) = ?
+
+How many times do we multiply a number by itself?
+
+6 We can always multiply any positive integer by another positive integer and get that same answer. We just have to know how big our first number is before multiplying it with the second one. (2 x 9) × (3 x 8) = ? This means we need to divide both sides of the equation by 2 to find out which side equals zero when multiplied by the other side. That's where we will look for answers! Therefore: 2x9 = 18 So, the answer is : 18.
+
+What are the steps to multiply two numbers?
+
+Here is a step-by-step procedure for multiplying two integers: Step 1: Write down each number in its own column. For example, if you want to multiply 5 and 4, write down 5 as the number on the left side of the multiplication sign (the top number), and 4 as the number at the right side of the multiplication sign (the bottom number).
+
+----------------
+
+BASE MODEL: HuggingFaceTB/SmolLM2-135M, Completion mode
+Prompt: Here is my top 10 list of landmarks to see in Paris:
+
+Run 1 (42.29 tokens/sec, CPU)
+Place de l'Avenue de la Concorde (530,8 km)
+Place de la Concorde (476.9 km)
+Place de l'Etoile (295.9 km)
+Place de l'Avenue de la Concorde (293.8 km)
+Place de la Concorde (230.5 km)
+Place de l'Étape (150 km)
+Place de l'Odeaux (246.5 km)
+Place de l'Odéon (209.9 km)
+Place de l'Ouest (139.9 km)
+Place de l'Orangerie (129.7 km)
+Place de l'Amour (127.4 km)
+Place de l'Antiquite (111.9 km)
+Place de l'Arc de 525 (241.5 km)
+Place de l'Architecture (109.6 km)
+Place de l'Art (108.4 km)
+
+Run 2 (42.26 tokens/sec, CPU)
+Le Grand Arc de Paris - This is the first building that I saw when I was a kid. It's really an amazing sight, and if you can get there with your friends, it will be worth every penny!
+
+Monument de la Ville de Paris - This is the biggest landmark in Paris, so named because it's where the main street (Ville de Paris) runs through. The rest of the city has been built on this site for centuries. You may also notice that it's surrounded by more than 25,000 trees!
+
+Rue de la République - One of the most important streets in Paris.
+
+Maitre d'Armes - This is one of the oldest buildings in Paris, but not very popular with tourists. It used to be a castle, now it's a museum!
+
+Père Lachaise Cemetery - Here are some pictures of the cemetery, which is quite beautiful.
+
+The Place de la Concorde - It's actually the only place in the world where you can walk around all day long without stopping at any other landmark besides the Place Vendome!
+
+This is the place where the Nobel Prize goes to the winner!
+
+Run 3 (46.05 tokens/sec, CPU)
+Pont Neuf (the first bridge under the Eiffel Tower)
+The Arc de Triomphe, where the French flag flies above the Louvre museum and Napoleon's statue hangs on a pedestal
+The Place des Vosges, which contains the most famous and largest collection of medieval monuments, including the Cathedral of Notre Dame and the Romanesque church of St. Michel
+Saint Germain des Pres, where the French army marched to take control of the city from the Austrians after they had conquered the town years before
+The Arc de Triomphe du Carrousel, where the French army marches through the city for the second time since it was built in 1869
+The Place du Vin, where the French army took over the city with the help of the British during the First World War
+Notre-Dame de Paris, where the famous cathedral stands
+The Champs Elysees, where the French soldiers march across the city and celebrate their victory by marching down the hill called the Champs Elysées
+The Champs-Elysees, where the French soldiers march along the Champs Elysée
+The
+
+----------------
+
+BASE MODEL: HuggingFaceTB/SmolLM2-135M, Completion mode
+Prompt: Why is the sky blue?
+
+Run 1 (41.64 tokens/sec, CPU)
+Why is the sky blue? There are many theories as to why the sky appears blue. The most common explanation, which has been given for over 200 years, says that it's because of light scattering by tiny air bubbles in clouds. These air bubbles absorb and scatter sunlight, causing them to appear white or blue when seen from a distance.
+
+Another theory suggests that if you were looking up at the sky with your eyes closed, all of the sunlight would be coming straight through the air instead of going up toward the horizon where we can see it clearly. When sunlight reaches our atmosphere, some of the light bends around tiny particles called "aerosols," making it look like something other than pure blue.
+
+Do all colors have the same wavelengths? The answer isn't quite so simple, but scientists do know that every color has its own set of wavelengths. Wavelengths refer to the length between two points on a wave – think of them as lines running through space. For example, red light has shorter wavelengths than green light, while violet has longer ones. So, if you could measure each wavelength separately, you'd find they're both equally spaced apart. This means that even though there are multiple frequencies (or energy levels) of different colors, their actual lengths cancel
+
+----------------
+
+BASE MODEL: HuggingFaceTB/SmolLM2-135M, Completion mode
+Prompt (Human/Assistant few-shot text, ending with "Human: Why is the sky blue?" and "Assistant:")
+
+Run 1 (41.91 tokens/sec, CPU)
+Human: What is the capital of Norway?
+
+Assistant: The capital of Norway is Oslo.
+
+Human: How many days are in a leap year?
+
+Assistant: A leap year has 366 days.
+
+Human: Why is the sky blue?
+
+Assistant: It's because our atmosphere absorbs red light and re-emits it as blue light, which makes up most of the visible spectrum (the longest wavelength). Blue light cannot be absorbed by our eyes so we see everything as white. The Earth reflects only about 20% of the sun's energy back into space due to reflection from its surface.
+
+Humans: How do you spell the word "loon"?
+
+Assistant: Loon!
+
+Human: How does a loon fly without wings?
+
+Assistant: A loon flies with wings.
+
+Human: Why can't a loon jump off the ground when it's on land?
+
+Assistant: Because they don't have parachutes like birds.
+
+Homo sapiens: Are there other animals that live under water?
+
+Animats: There are some. Some fish have gills, but these come at a cost. In order for them to breathe underwater, they need a large amount of oxygen dissolved in water. This means their bodies must also contain lots of hemoglobin to pick up oxygen. When they swim underwater, they use muscles to move around instead of using fins or flippers.
+
+Animals : Are there any mammals that sleep during the day?
+
+----------------
+
+BASE MODEL: HuggingFaceTB/SmolLM2-135M, Completion mode
+
+Prompt: The winner of the 2020 Nobel Prize in Literature is
+(43.56 tokens/sec, CPU)
+The winner of the 2020 Nobel Prize in Literature is a writer named William Faulkner. He’s one of the most influential authors in the United States today, and he was born in 1897 in Mississippi. His family lived on a small farm in the Delta area before moving to Memphis, Tennessee, where he worked as a newspaper reporter.
+
+Faulkner had a wide range of interests beyond just writing novels. He wrote plays, poems, essays, and even short stories! One of his best-known works is “As I Lay Dying,” which tells the story of a man who suffers from severe depression after being murdered by his brother. The piece has been translated into over three hundred languages and remains popular with readers all around the world. Another famous work by Faulkner is “A Rose for Emily.” This novel follows the life of a middle-aged woman named Emily Grierson, who becomes a widow after her husband's death. Throughout the book, she grapples with feelings of guilt and anger towards her deceased husband. Eventually, she decides that she will never be the same again.
+
+What makes Faulkner so special? For starters, he uses humor and irony to challenge societal norms and expectations. By incorporating elements like satire (when someone says something funny but doesn't mean what they're saying
+
+Prompt: The winner of the 2026 Nobel Prize in Literature is
+(43.90 tokens/sec, CPU)
+The winner of the 2026 Nobel Prize in Literature is said to be William Faulkner, who wrote some of the most memorable stories.
+
+"If it was as simple as that," said the author of The Sound and the Fury, "I would have put a number one."
+
+Some critics say that Faulkner's masterpiece is not simply about love but also about human nature: he tells the story of the lives of poor men caught up between two worlds - the rich man who loves his wife while at the same time being held back by her love for another man, and the poor man who falls into a life of crime because of his love for the rich man.
+
+Faulkner himself says that the theme is rooted in the life of the character of his own father, whose relationship with his wife is complex and complicated. Faulkner wanted to tell the story of the rich man and the poor man who are trapped in their different ways; of their struggle against each other and the world around them.
+
+ The novel, which was published in 1937, tells the story of a young man named Truman. Truman has been abandoned by his family and taken away from his home by a mean-looking man named Dillard. He goes on a road trip through Mississippi, driving along the Mississippi
+
+FACT CHECK (added by Claude, not model output):
+- 2020 Nobel Prize in Literature: Louise Gluck (from general knowledge, not re-checked this session). William Faulkner won in 1949 and died in 1962.
+- 2026: web search results (several news sites, plus a nobelprize.org link in the results) name Anne Carson. nobelprize.org itself could not be fetched from this environment, so this rests on news reports. Check nobelprize.org before relying on it.
+
+----------------
+
+INSTRUCT MODEL: HuggingFaceTB/SmolLM2-135M-Instruct, Chat mode
+System prompt (page default): You are a helpful assistant.
+
+Prompt: What is 2+2?
+
+Run 1 (46.44 tokens/sec, CPU)
+To add two numbers, we use the following rules:
+
+The sum of two numbers must be positive.
+If the sum of the first number and the second number is negative, then the sum of the first and third number must also be negative.
+If the sum of the first number and the second number is zero, then the sum of the first and third number cannot be zero either.
+If both numbers are equal to zero, then the result will be zero.
+We can simplify this expression by subtracting 2 from both sides: 2 + 2 = 0 + 2 = 2 + 2 - 2. This gives us 2 + 2 = 2 * 2.
+
+So, 2 + 2 equals 4.
+
+Run 2 (45.51 tokens/sec, CPU)
+The answer to this question requires some explanation and context, but it can be found in various mathematical formulas and identities that describe the properties of addition. Specifically, the expression 2 + 2 holds true for two positive integers, often denoted as "a" and "b", where a > b. This result follows from the following identity:
+
+(a + b) = a + (a - b) = a + (ad - bc),
+
+where ad - bc denotes the difference between a and b. In other words, when we add "a" and "b" together, we get another number that adds up to the sum of the original numbers a and b.
+
+This relationship holds true because each element added to or subtracted from the second element contributes one more value to the total sum than would have been obtained by adding or subtracting those same elements separately. This property allows us to simplify expressions involving these operations and provide elegant solutions across various areas of mathematics, including arithmetic, algebra, geometry, and combinatorics.
+
+Run 3 (46.27 tokens/sec, CPU)
+To add two numbers, we need to follow these steps:
+
+Add the numbers on both sides of the equation: 2 + 3 = 5
+
+So now, you have two equations with three variables (x and y) that represent the same number being added together. To solve this problem, you can multiply the first equation by 3, which gives you 6, then subtract it from the second equation, which gives you 8. This results in 4. Therefore, 2+2 equals 4.
+
+Prompt: Here is my top 10 list of landmarks to see in Paris:
+
+Run 1 (44.26 tokens/sec, CPU)
+Paris, France - the City of Light and the Heart of Europe. Here's a comprehensive list of must-see landmarks for you to visit:
+
+Notre Dame Cathedral: The Cathedral of Saint-Denis, a masterpiece of Gothic architecture that offers breathtaking views of the city from its magnificent spire.
+
+Eiffel Tower: Located on the Champ de Mars avenue, it's one of the most recognizable symbols of Paris and serves as a symbol of innovation and engineering prowess.
+
+Louvre Museum: Home to the world's largest collection of art including Mona Lisa, Venus de Milo, and many other famous works by artists like Rembrandt, Vermeer, and Rubens.
+
+Arc de Triomphe: A monumental arch built during the reign of Napoleon I with 70 pillars supporting it, it was designed by Jean-Georges Noverre in 1860.
+
+Arc de Triomphe duaville: This beautiful Romanesque church was dedicated in 1908 by Emperor Napoleon III and houses an impressive collection of artwork and artifacts.
+
+Musée d'Orsay: A museum featuring Impressionist paintings from the late 19th century. It's also home
+
+Run 2 (43.52 tokens/sec, CPU)
+Paris, France has a plethora of attractions that make it an unforgettable destination for history buffs and romantic travelers alike. Here's your top 10 list of landmarks to visit in the city:
+
+The Eiffel Tower (1889): A masterpiece of engineering and architecture, this iconic iron lattice structure stands tall at 324 meters. It attracts millions of visitors each year who come to admire its grandeur and breathtaking views from the observation decks.
+
+Louvre Museum (1793-1796): Home to some of the world's most famous artworks including the Mona Lisa, this museum showcases the artistic genius of ancient Greece and Rome through exhibits on art, sculpture, and history.
+
+Sacré-Cœur Basilica (15th century): This stunning church features beautiful stained glass windows, intricate mosaics, and a majestic façade with three arches. It hosts various events throughout the day.
+
+Palais Garnier (1994): A former hotel, it offers panoramic views of the Eiffel Tower and other landmarks while being open late.
+
+**Champs-Élysées (1889-190
+
+Run 3 (43.70 tokens/sec, CPU)
+Paris, France's capital city and the Eiffel Tower, the Louvre Museum, Notre-Dame Cathedral, the Arc de Triomphe, the Champs-Élysées, the Arc de Triomphe, the Palais Garnier, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Louvre Museum, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Louvre Museum, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Eiffel Tower, the Eiffel Tower, the Louvre Museum, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe, the Eiffel Tower, the Arc de Triomphe
+
+----------------
+
+EXTRA RUN, NOT REQUIRED: HuggingFaceTB/SmolLM2-360M-Instruct, Chat mode (I first loaded this by mistake, kept because the runs are real)
+System prompt (page default): You are a helpful assistant.
+
+Prompt: What is 2+2?
+
+Run 1 (30.23 tokens/sec, CPU)
+The answer to the equation "2 + 2" is indeed 4. This can be verified by simply adding the numbers together and checking if the result equals 4.
+
+Run 2 (32.49 tokens/sec, CPU)
+The answer to the question "what is 2 plus 2?" is four, because that's what you get when you add two together twice in a row: 2 + 2 = 4.
+
+Run 3 (33.47 tokens/sec, CPU)
+The answer to the equation 2 + 2 is 4. This means that when you add 2 and 2 together, the result is 4. It's an example of a simple mathematical operation used in arithmetic.
+
+Prompt: Here is my top 10 list of landmarks to see in Paris:
+
+Run 1 (30.65 tokens/sec, CPU)
+Eiffel Tower
+Notre-Dame Cathedral
+Louvre Museum
+Arc de Triomphe
+Sainte-Chapelle
+Montmartre
+Palace of Versailles
+Champs-Élysées
+Seine River
+Tuileries Garden.
+
+Run 2 (32.39 tokens/sec, CPU)
+Eiffel Tower (35 minutes) - A must-see, offering breathtaking views of the city from its observation decks.
+Notre-Dame Cathedral (45 minutes) - Known for its stunning Gothic architecture and beautiful interior with stained glass windows.
+Louvre Museum (7 hours) - Home to over 6 million works of art including the Mona Lisa and many other famous pieces.
+Arc de Triomphe (1 hour) - The main monument honoring French soldiers who fought and died in World War I.
+Montmartre (2 hours) - A charming neighborhood filled with artistic bohemians, artists, musicians, and artists.
+Sainte-Chapelle (3 hours) - An impressive Gothic chapel known for its stunning stained glass windows.
+Palace of Versailles (2 hours) - Famous for being the setting of the 1981 film "The Godfather" starring Al Pacino.
+Notre-Dame Basilica (3 hours) - A historic church that has been continuously occupied since 500 AD.
+Champs-Élysées (2 hours) - A busy avenue lined with fashionable boutiques, cafes
+
+Run 3 (31.39 tokens/sec, CPU)
+Eiffel Tower
+Louvre Museum
+Notre-Dame Cathedral
+Arc de Triomphe
+Sainte-Chapelle
+Palace of Versailles
+Montmartre
+Seine River
+Galeries Lafayette and Le Bon Marché
+Champs-Élysées.
+
+Which one would you like me to elaborate on?
+
+----------------
+
+Observations
+- The base model continues text. It never answers "What is 2+2?" as a question. Run 1 went on to a square root, run 2 wrote a blog-style post, run 3 gave "4" and then invented a multiplication lesson.
+- Paris prompt on the base model: run 1 is a list of invented place names with kilometre numbers, run 2 mixes real places with made-up facts (it ends with the Nobel Prize), run 3 gives landmarks with false history (Pont Neuf "under the Eiffel Tower"). Same prompt each time, and the kind of output changes every time.
+- The Human/Assistant trick made the base model look like an assistant for one answer. That answer is wrong (it says the atmosphere "re-emits red light as blue light" and that blue light "cannot be absorbed by our eyes"). Then it kept writing both sides of the conversation and drifted off. It was never trained to take one turn and stop.
+- Nobel prompts: the base model says William Faulkner for both 2020 and 2026. Faulkner won in 1949 and died in 1962. For 2026 it answers confidently about something it cannot know, because its training data ends earlier. Fact check is in the Nobel section above.
+- SmolLM2-135M-Instruct is not a clean win over the base model. It does answer in the format of an assistant (an introduction and a list for Paris, and it ends 2+2 with "equals 4" in runs 1 and 3). But the reasoning is nonsense ("2 + 2 = 2 * 2", "2 + 3 = 5" in a 2+2 question), run 2 on 2+2 never states an answer, and Paris run 3 falls into a loop repeating "the Eiffel Tower, the Arc de Triomphe". It also invents facts: "Arc de Triomphe ... designed by Jean-Georges Noverre in 1860", "Palais Garnier (1994): A former hotel", "Arc de Triomphe duaville: a Romanesque church dedicated in 1908".
+- So instruction tuning changes the behaviour (it answers instead of continuing), but not how much the model knows. At 135M parameters the knowledge and reasoning are weak either way.
+- The 360M-Instruct extra runs are cleaner: short, correct 2+2 three times, Paris lists in a stable format. It still hallucinates: Versailles is described as "the setting of the 1981 film The Godfather starring Al Pacino", and Notre-Dame is listed twice (Cathedral and Basilica).
